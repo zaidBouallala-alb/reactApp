@@ -4,6 +4,7 @@ import { getFormations } from "../api/educationService";
 import LoadingSpinner from "../components-app/LoadingSpinner";
 import ErrorMessage from "../components-app/ErrorMessage";
 import ThemeToggle from "../components/ThemeToggle";
+import SEO from "../components/SEO";
 
 // 3D Tilt Card Component
 const TiltCard = ({ children, onClick, delay, className }) => {
@@ -132,6 +133,11 @@ export default function FormationsPage() {
 
     return (
         <div className="relative min-h-screen w-full overflow-hidden transition-colors duration-500">
+            <SEO
+                title={`Formations - Year ${yearId}`}
+                description={`Select your formation for year ${yearId}.`}
+                keywords={`ofppt, formations, year ${yearId}, education`}
+            />
             <ThemeToggle />
 
             {/* Background Decor */}

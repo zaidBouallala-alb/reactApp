@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle";
+import SEO from "../components/SEO";
 
 // 3D Tilt Container for Hero Image
 const HeroTilt = ({ children }) => {
@@ -59,6 +60,11 @@ export default function EducateWelcomePage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden transition-colors duration-500">
+      <SEO
+        title="Welcome"
+        description="Your gateway to academic excellence and future success. Explore OFPPT courses and resources."
+        keywords="ofppt, cours, education, morocco, web development, learning"
+      />
       <ThemeToggle />
 
       {/* Dynamic Parallax Background */}

@@ -4,6 +4,7 @@ import { getCourses } from "../api/educationService";
 import LoadingSpinner from "../components-app/LoadingSpinner";
 import ErrorMessage from "../components-app/ErrorMessage";
 import ThemeToggle from "../components/ThemeToggle";
+import SEO from "../components/SEO";
 
 // 3D Tilt Card Component (Lite Version for List Items)
 const TiltCard = ({ children, onClick, delay, className }) => {
@@ -141,6 +142,11 @@ export default function CoursesPage() {
 
     return (
         <div className="relative min-h-screen w-full overflow-hidden transition-colors duration-500">
+            <SEO
+                title={`${activeTab === 'efm' ? 'Exam Materials' : activeTab === 'controls' ? 'Controls' : 'Course Lessons'} - Module ${moduleId}`}
+                description={`Access ${activeTab} resources for module ${moduleId}. Download PDF lessons, exams, and controls.`}
+                keywords={`ofppt, cours, exams, controls, module ${moduleId}, ${activeTab}`}
+            />
             <ThemeToggle />
 
             {/* Background Decor */}

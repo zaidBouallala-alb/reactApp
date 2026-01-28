@@ -4,6 +4,7 @@ import { useYears } from "../hooks/useYears";
 import LoadingSpinner from "./LoadingSpinner";
 import ErrorMessage from "./ErrorMessage";
 import ThemeToggle from "../components/ThemeToggle";
+import SEO from "../components/SEO";
 
 // 3D Tilt Card Component
 const TiltCard = ({ children, onClick, delay }) => {
@@ -122,6 +123,11 @@ export default function EducationLevelPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden transition-colors duration-500">
+      <SEO
+        title="Education Levels"
+        description="Select your education level to browse formations and courses."
+        keywords="ofppt, education levels, formations, cours"
+      />
       <ThemeToggle />
 
       {/* 3D Background Elements */}
