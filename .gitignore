@@ -46,12 +46,20 @@ lerna-debug.log*
 *.sln
 *.sw?
 .history/
+.vs/
+
 
 # OS System Files
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# TestSprite / AI Artifacts (Optional cleanup)
-testsprite_tests/tmp/
+# TestSprite / AI Artifacts / Generated Docs
+testsprite_tests/
 *.tmp
+API_INTEGRATION_GUIDE.md
+COMPLETE_API_INTEGRATION.md
+FILIERES_FEATURE.md
+TESTING_SUMMARY.md
+prd.md
+

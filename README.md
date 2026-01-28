@@ -1,6 +1,6 @@
 # 🎓 OFPPT Course Explorer - Premium Edition
 
-![App Banner](/public/backgrounds/bg-2.png)
+![App Banner](public/app-preview.png)
 
 A next-generation educational platform built with **React**, **Vite**, and **Tailwind CSS v4**. This application features a high-end "Smart UI" with 3D interactivity, dynamic glassmorphism, and a seamless API integration for browsing OFPPT curriculum content.
 
