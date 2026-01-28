@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@config "../tailwind.config.js";
+@import "tailwindcss";
+@import "./styles/theme.css";
+
+/* 
+   Tailwind CSS v4 Configuration 
+   Dark mode is configured via tailwind.config.js (darkMode: 'class') 
+   which v4 respects for backward compatibility.
+*/
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Custom Animations */
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-slide-up: slideUp 0.6s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-spin-slow: spin 3s linear infinite;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --bg-image: none;
+  }
+
+  body {
+    @apply antialiased text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-950 transition-colors duration-500 font-sans min-h-screen;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer components {
+
+  /* Reusable Component Classes */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl border-2 border-primary-100 hover:border-primary-200 hover:bg-primary-50 active:scale-95 transition-all duration-300 dark:bg-slate-800 dark:border-slate-700 dark:text-primary-400 dark:hover:bg-slate-700;
+  }
+
+  .card-glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-glass rounded-2xl p-6 hover:shadow-xl transition-all duration-300 dark:bg-slate-800/70 dark:border-slate-700/50 dark:shadow-none;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm dark:bg-slate-800 dark:border-slate-700 dark:text-white dark:focus:border-primary-400;
+  }
+}
+
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
+}
