@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getCourses } from "../api/educationService";
+import { getCourses, getEfms, getControls } from "../api/educationService";
 import LoadingSpinner from "../components-app/LoadingSpinner";
 import ErrorMessage from "../components-app/ErrorMessage";
 import ThemeToggle from "../components/ThemeToggle";
@@ -85,39 +85,40 @@ export default function CoursesPage() {
     const [activeTab, setActiveTab] = useState("cours"); // 'cours', 'controls', 'efm'
 
     useEffect(() => {
-        const fetchCourses = async () => {
+        const fetchResources = async () => {
             try {
                 setLoading(true);
                 setError(null);
-                const data = await getCourses(moduleId);
+                let data = [];
+
+                if (activeTab === 'cours') {
+                    data = await getCourses(moduleId);
+                } else if (activeTab === 'controls') {
+                    data = await getControls(moduleId);
+                } else if (activeTab === 'efm') {
+                    data = await getEfms(moduleId);
+                }
+
                 setAllResources(data || []);
             } catch (err) {
-                setError(err.message || "Failed to load courses");
-                setAllResources([]);
+                // For controls and EFMs, we want to fail silently (show empty state) 
+                // rather than showing a scary error message
+                if (activeTab === 'controls' || activeTab === 'efm') {
+                    console.log(`Failed to load ${activeTab}:`, err);
+                    setAllResources([]);
+                    setError(null);
+                } else {
+                    setError(err.message || "Failed to load resources");
+                    setAllResources([]);
+                }
             } finally {
                 setLoading(false);
             }
         };
-        fetchCourses();
-    }, [moduleId]);
+        fetchResources();
+    }, [moduleId, activeTab]);
 
-    // Filter resources based on keywords
-    const getFilteredResources = (type) => {
-        return allResources.filter(resource => {
-            const title = (resource.title || resource.name || "").toLowerCase();
-            if (type === "efm") {
-                return title.includes("efm") || title.includes("fin de module") || title.includes("regional") || title.includes("examen");
-            } else if (type === "controls") {
-                return title.includes("contrôle") || title.includes("control") || title.includes("cc") || title.includes("quiz") || title.includes("test");
-            } else {
-                const isEfm = title.includes("efm") || title.includes("fin de module") || title.includes("regional") || title.includes("examen");
-                const isControl = title.includes("contrôle") || title.includes("control") || title.includes("cc") || title.includes("quiz") || title.includes("test");
-                return !isEfm && !isControl;
-            }
-        });
-    };
-
-    const currentResources = getFilteredResources(activeTab);
+    const currentResources = allResources;
 
     const handleDownload = (e, course) => {
         e.preventDefault();

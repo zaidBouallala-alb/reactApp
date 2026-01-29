@@ -77,6 +77,7 @@ export const getCourses = async (moduleId) => {
  * @param {number} courseId - The ID of the course
  * @returns {Promise<Object>} Exams object with EFM and controls
  */
+// ... existing getExams ...
 export const getExams = async (courseId) => {
     if (!courseId) {
         throw new Error('Course ID is required');
@@ -84,6 +85,42 @@ export const getExams = async (courseId) => {
 
     try {
         const data = await apiClient.get(`/courses/${courseId}/exams`);
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+/**
+ * Get EFMs for a specific module
+ * @param {number} moduleId - The ID of the module
+ * @returns {Promise<Array>} Array of EFM objects
+ */
+export const getEfms = async (moduleId) => {
+    if (!moduleId) {
+        throw new Error('Module ID is required');
+    }
+
+    try {
+        const data = await apiClient.get(`/modules/${moduleId}/efms`);
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+/**
+ * Get Controls for a specific module
+ * @param {number} moduleId - The ID of the module
+ * @returns {Promise<Array>} Array of Control objects
+ */
+export const getControls = async (moduleId) => {
+    if (!moduleId) {
+        throw new Error('Module ID is required');
+    }
+
+    try {
+        const data = await apiClient.get(`/modules/${moduleId}/ccs`);
         return data;
     } catch (error) {
         throw error;
@@ -114,6 +151,8 @@ export default {
     getModules,
     getCourses,
     getExams,
+    getEfms,
+    getControls,
     getResources, // Backward compatibility
     downloadFile,
 };
