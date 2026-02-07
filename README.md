@@ -12,12 +12,14 @@ A next-generation educational platform built with **React**, **Vite**, and **Tai
 -   **Parallax Hero**: The welcome screen features a depth-aware paralax background system.
 
 ### 🎨 Dynamic Theme Engine
--   **5+ Premium Backgrounds**: Integrated "Smart Switcher" allows users to cycle through 5 unique high-res backgrounds (Glass, Neon, Geometric, etc.).
+-   **Auto Theme Backgrounds**: Light mode uses Geometric background, Dark mode uses Neon Dark - automatically switches with theme.
 -   **Glassmorphism**: Advanced backdrop-blur and translucency effects that adapt to the selected background.
 -   **Dark Mode**: Fully supported system-wide dark mode with specialized neon accents.
+-   **Smart Animations**: Professional UI animations with Apple-style easing curves and natural motion physics.
 
 ### 🚀 Advanced Architecture
 -   **Complete API Integration**: Full browsing flow from Years → Formations → Modules → Courses → Resources.
+-   **EFF Exams**: Dedicated page for Examen de Fin de Formation (Final Training Exams) per formation.
 -   **Smart Caching**: Efficient data handling with loading states and error boundaries.
 -   **Responsive Grid**: Optimized layouts for mobile, tablet, and desktop screens.
 -   **Download Manager**: One-click download for PDF lessons and exams.
@@ -56,11 +58,11 @@ npm run dev
 src/
 ├── api/                # Axios client and service endpoints
 ├── components-app/     # Smart UI components (TiltCard, Welcome, etc.)
-├── pages/             # Route pages (Formations, Modules, Courses)
+├── pages/             # Route pages (Formations, Modules, Courses, EFF)
 ├── i18n/              # Localization files
 └── styles/            # Tailwind and global themes
 public/
-└── backgrounds/       # Dynamic background assets
+└── backgrounds/       # Dynamic background assets (bg-1, bg-5)
 ```
 
 ## 🌟 Smart Features Showcase
@@ -68,8 +70,11 @@ public/
 ### 1. Context-Aware Icons
 The app automatically detects the type of content (e.g., "Development", "Infrastructure", "Design") and assigns custom 3D icons and color themes dynamically.
 
-### 2. EFM & Control Filtering
-Intelligent filtering logic separates course materials into **Lessons**, **Controls** (Continuous Assessment), and **EFMs** (Final Exams) tabs automatically based on file naming conventions.
+### 2. EFM, Controls & EFF Filtering
+-   **Lessons**: Course materials and presentations
+-   **Controls**: Continuous Assessment exams per module
+-   **EFM**: End of Module exams
+-   **EFF**: Final Formation exams (accessible from formation cards)
 
 ## 🤝 Contributing
 
