@@ -1,82 +1,63 @@
-# 🎓 OFPPT Course Explorer - Premium Edition
+# 🎓 OFPPT Cours - Open Source Learning Platform
 
 ![App Banner](public/app-preview.png)
 
-A next-generation educational platform built with **React**, **Vite**, and **Tailwind CSS v4**. This application features a high-end "Smart UI" with 3D interactivity, dynamic glassmorphism, and a seamless API integration for browsing OFPPT curriculum content.
+A modern, high-performance educational platform designed for **OFPPT** trainees. Built with **React 18**, **Tailwind CSS**, and **Vite**, featuring a clean "Slate" design system, dark mode support, and full French localization.
 
 ## ✨ Key Features
 
-### 🧠 Smart 3D Interface
--   **3D Tilt Cards**: Interactive formation and module cards that respond to mouse movement with realistic depth and lighting effects.
--   **Magnetic Interactions**: Buttons and interactive elements feature magnetic hover physics.
--   **Parallax Hero**: The welcome screen features a depth-aware paralax background system.
+### 📚 Comprehensive Curriculum
+-   **Structure**: Browse by Year → Formation (TS/T/Q) → Modules → Courses.
+-   **Resources**: Access PDF summaries, courses, and practical exercises (TP).
+-   **Exams**: Dedicated section for **EFF** (Examen de Fin de Formation) with corrections.
 
-### 🎨 Dynamic Theme Engine
--   **Auto Theme Backgrounds**: Light mode uses Geometric background, Dark mode uses Neon Dark - automatically switches with theme.
--   **Glassmorphism**: Advanced backdrop-blur and translucency effects that adapt to the selected background.
--   **Dark Mode**: Fully supported system-wide dark mode with specialized neon accents.
--   **Smart Animations**: Professional UI animations with Apple-style easing curves and natural motion physics.
+### 🎨 Clean Slate Design System
+-   **Academic UI**: A distraction-free interface using a refined Slate color palette (`#f8fafc`).
+-   **Dark Mode**: Fully optimized dark theme (`#020617`) for late-night study sessions.
+-   **Responsive**: Mobile-first design that works perfectly on phones, tablets, and desktops.
 
-### 🚀 Advanced Architecture
--   **Complete API Integration**: Full browsing flow from Years → Formations → Modules → Courses → Resources.
--   **EFF Exams**: Dedicated page for Examen de Fin de Formation (Final Training Exams) per formation.
--   **Smart Caching**: Efficient data handling with loading states and error boundaries.
--   **Responsive Grid**: Optimized layouts for mobile, tablet, and desktop screens.
--   **Download Manager**: One-click download for PDF lessons and exams.
+### 🚀 Technical Excellence
+-   **Performance**: Near-instant page loads with code splitting and optimized assets.
+-   **SEO**: Fully optimized with JSON-LD structured data and meta tags for visibility.
+-   **PWA-Ready**: Built with modern web standards for a native-like experience.
 
 ## 🛠️ Tech Stack
 
--   **Frontend**: React 18
--   **Build Tool**: Vite 6
--   **Styling**: Tailwind CSS v4 (Alpha)
--   **Routing**: React Router DOM 7
--   **Icons**: Custom SVG System (Smart Iconography)
--   **State Management**: React Hooks + LocalStorage
--   **HTTP Client**: Axios with Interceptors
+-   **Frontend**: React 18, React Router v6
+-   **Styling**: Tailwind CSS v3, PostCSS
+-   **Build Tool**: Vite
+-   **Analytics**: Google Analytics 4 (SPA Integration)
+-   **Icons**: Heroicons / Custom SVG System
 
 ## 📦 Installation
 
-clone the repository:
-```bash
-git clone https://github.com/zaidbouallala-alb/reactApp.git
-cd reactApp
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/zaidbouallala-alb/ofppt-cours.git
+    cd ofppt-cours
+    ```
 
-Install dependencies:
-```bash
-npm install
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-Start the development server:
-```bash
-npm run dev
-```
+3.  **Setup Environment Variables:**
+    Create a `.env` file in the root directory:
+    ```env
+    VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+    ```
 
-## 🏗️ Project Structure
-
-```bash
-src/
-├── api/                # Axios client and service endpoints
-├── components-app/     # Smart UI components (TiltCard, Welcome, etc.)
-├── pages/             # Route pages (Formations, Modules, Courses, EFF)
-├── i18n/              # Localization files
-└── styles/            # Tailwind and global themes
-public/
-└── backgrounds/       # Dynamic background assets (bg-1, bg-5)
-```
-
-## 🌟 Smart Features Showcase
-
-### 1. Context-Aware Icons
-The app automatically detects the type of content (e.g., "Development", "Infrastructure", "Design") and assigns custom 3D icons and color themes dynamically.
-
-### 2. EFM, Controls & EFF Filtering
--   **Lessons**: Course materials and presentations
--   **Controls**: Continuous Assessment exams per module
--   **EFM**: End of Module exams
--   **EFF**: Final Formation exams (accessible from formation cards)
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
 
 ## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 1.  Fork the project
 2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -86,4 +67,4 @@ The app automatically detects the type of content (e.g., "Development", "Infrast
 
 ---
 
-*Built with ❤️ for the OFPPT Community*
+*Unofficial educational resource for the OFPPT community.*
