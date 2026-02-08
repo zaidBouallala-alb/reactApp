@@ -9,8 +9,8 @@ const ModulesPage = lazy(() => import('./pages/ModulesPage'));
 const CoursesPage = lazy(() => import('./pages/CoursesPage'));
 const EffPage = lazy(() => import('./pages/EffPage'));
 
-import ErrorBoundary from './components/ErrorBoundary';
-import LoadingSpinner from './components/LoadingSpinner';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
+import LoadingSpinner from './components/LoadingSpinner.jsx';
 import Footer from './components/Footer';
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Routes, Route } from 'react-router-dom';
